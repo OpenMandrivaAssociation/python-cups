@@ -4,13 +4,13 @@
 Summary:       Python bindings for the CUPS API
 Name:          python-%{module}
 Version:       1.9.42
-Release:       %mkrel 1
+Release:       %mkrel 2
 Source0:       http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2
 License:       BSD 
 Group:         Development/Python
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url:           http://cyberelk.net/tim/software/pycups/
-BuildRequires: python-devel
+%py_requires -d
 BuildRequires: cups-devel
 
 %description
@@ -19,7 +19,7 @@ Python bindings for the CUPS API.
 
 %files
 %defattr(-,root,root)
-%{py_platsitedir}/cups-1.0-py2.5.egg-info
+%{py_platsitedir}/*.egg-info
 %{py_platsitedir}/cups.so
 
 #--------------------------------------------------------------------
