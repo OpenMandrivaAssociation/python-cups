@@ -30,8 +30,7 @@ Python bindings for the CUPS API.
 %patch0 -p1 -b .printf
 
 %build
-make
-python setup.py build
+CFLAGS=-DVERSION=\\\"%{version}\\\" python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
