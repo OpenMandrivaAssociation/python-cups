@@ -31,8 +31,8 @@ Python bindings for the CUPS API.
 CFLAGS=-DVERSION=\\\"%{version}\\\" python setup.py build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-python setup.py install --skip-build --root=$RPM_BUILD_ROOT
+rm -rf %{buildroot}
+python setup.py install --skip-build --root=%{buildroot}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
