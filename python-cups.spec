@@ -2,8 +2,8 @@
 
 Summary:       Python bindings for the CUPS API
 Name:          python-%{module}
-Version:       1.9.57
-Release:       3
+Version:       1.9.62
+Release:       1
 Source0:       http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2
 Source1:       http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2.sig
 License:       BSD 

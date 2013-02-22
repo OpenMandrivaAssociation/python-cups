@@ -1,2 +1,3 @@
 sources:
-  "pycups-1.9.57.tar.bz2": 5859848c3a5be51d67287a332abed0bb631e51dc
+  pycups-1.9.62.tar.bz2: d9742c94f9baaaf002a2d37e0e80bc5f779e312c
+  pycups-1.9.62.tar.bz2.sig: c6d287cec3f356e6c3992641630692b1f312c986
