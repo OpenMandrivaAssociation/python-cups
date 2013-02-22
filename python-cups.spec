@@ -9,7 +9,7 @@ Source1:       http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2.sig
 License:       BSD 
 Group:         Development/Python
 Url:           http://cyberelk.net/tim/software/pycups/
-BuildRequires: cups-devel
+BuildRequires: cups-devel pkgconfig(python2)
 
 %description
 Python bindings for the CUPS API.
