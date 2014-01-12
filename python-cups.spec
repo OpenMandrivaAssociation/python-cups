@@ -2,8 +2,8 @@
 
 Summary:	Python bindings for the CUPS API
 Name:		python-%{module}
-Version:	1.9.63
-Release:	5
+Version:	1.9.66
+Release:	1
 License:	BSD
 Group:		Development/Python
 Url:		http://cyberelk.net/tim/software/pycups/
@@ -26,3 +26,4 @@ python setup.py install --skip-build --root=%{buildroot}
 %files
 %{py_platsitedir}/*.egg-info
 %{py_platsitedir}/cups.so
+
