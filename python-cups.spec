@@ -1,29 +1,61 @@
 %define module cups
+# we don't want to provide private python extension libs
+%define _exclude_files_from_autoprov %{python_sitearch}/.*\\.so\\|%{python3_sitearch}/.*\\.so
 
-Summary:	Python bindings for the CUPS API
-Name:		python-%{module}
-Version:	1.9.66
-Release:	3
-License:	BSD
-Group:		Development/Python
-Url:		http://cyberelk.net/tim/software/pycups/
-Source0:	http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2
-BuildRequires:	cups-devel
-BuildRequires:	pkgconfig(python2)
+Summary:       Python bindings for the CUPS API
+Name:          python-%{module}
+Version:       1.9.67
+Release:       1
+Source0:       http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2
+License:       BSD 
+Group:         Development/Python
+Url:           http://cyberelk.net/tim/software/pycups/
+BuildRequires: pkgconfig(python)
+BuildRequires: cups-devel
+BuildRequires: pkgconfig(python3)
 
 %description
 Python bindings for the CUPS API.
 
+%package -n python2-%{module}
+Group:         Development/Python
+Summary:       Python 2 bindings for the CUPS API
+
+%description -n python2-%{module}
+Python 3 bindings for the CUPS API.
+
+%files
+%doc COPYING ChangeLog README NEWS TODO
+%{python_sitearch}/cups.cpython-3*.so
+%{python_sitearch}/pycups*.egg-info
+%{_rpmconfigdir}/fileattrs/psdriver.attr
+%{_rpmconfigdir}/postscriptdriver.prov
+
+%files -n python2-%{module}
+%doc COPYING ChangeLog README NEWS TODO
+%{python2_sitearch}/cups.so
+%{python2_sitearch}/pycups*.egg-info
+%{_rpmconfigdir}/fileattrs/psdriver.attr
+%{_rpmconfigdir}/postscriptdriver.prov
+
+#--------------------------------------------------------------------
+
 %prep
-%setup -qn pycups-%{version}
+%setup -q -n pycups-%version
+cp -a . %{py2dir}
 
 %build
 export CC=%{__cc}
-CFLAGS="%optflags -fno-strict-aliasing" python setup.py build
+%make CFLAGS="%{optflags} -fno-strict-aliasing"
+
+pushd %{py2dir}
+CFLAGS="%{optflags}" %{__python2} setup.py build
+popd
 
 %install
-python setup.py install --skip-build --root=%{buildroot}
+%makeinstall_std
 
-%files
-%{py_platsitedir}/*.egg-info
-%{py_platsitedir}/cups*.so
+pushd %{py2dir}
+%{__python2} setup.py install --skip-build --root %{buildroot}
+chmod 755 %{buildroot}%{python_sitearch}/cups*.so
+popd

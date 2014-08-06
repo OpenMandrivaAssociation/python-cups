@@ -1,4 +1,2 @@
-removed_sources:
-  pycups-1.9.63.tar.bz2: 9d00572c1b33d0a8cb3d3df5d2cca7c421267596
 sources:
-  pycups-1.9.66.tar.bz2: a7569a1d3644da7283599e230db1e689d52b08e3
+  pycups-1.9.67.tar.bz2: cb1d7330c6c230f32173b97530d34e72316e6ec7
