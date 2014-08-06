@@ -18,12 +18,12 @@ Python bindings for the CUPS API.
 %setup -qn pycups-%{version}
 
 %build
-CFLAGS=-DVERSION=\\\"%{version}\\\" python setup.py build
+export CC=%{__cc}
+CFLAGS="%optflags -fno-strict-aliasing" python setup.py build
 
 %install
 python setup.py install --skip-build --root=%{buildroot}
 
 %files
 %{py_platsitedir}/*.egg-info
-%{py_platsitedir}/cups.so
-
+%{py_platsitedir}/cups*.so
