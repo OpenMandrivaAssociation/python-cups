@@ -1,6 +1,4 @@
 %define module cups
-# we don't want to provide private python extension libs
-%define _exclude_files_from_autoprov %{python_sitearch}/.*\\.so\\|%{python3_sitearch}/.*\\.so
 
 Summary:       Python bindings for the CUPS API
 Name:          python-%{module}
