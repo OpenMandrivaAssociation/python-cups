@@ -26,8 +26,8 @@ Python 3 bindings for the CUPS API.
 %doc COPYING ChangeLog README NEWS TODO
 %{py_platsitedir}/cups.cpython-3*.so
 %{py_platsitedir}/pycups*.egg-info
-%{_rpmconfigdir}/fileattrs/psdriver.attr
-%{_rpmconfigdir}/postscriptdriver.prov
+%{_rpmhome}/fileattrs/psdriver.attr
+%{_rpmhome}/postscriptdriver.prov
 
 %files -n python2-%{module}
 %doc COPYING ChangeLog README NEWS TODO
