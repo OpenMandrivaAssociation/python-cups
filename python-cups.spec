@@ -2,8 +2,8 @@
 
 Summary:       Python bindings for the CUPS API
 Name:          python-%{module}
-Version:       1.9.68
-Release:       4
+Version:       1.9.73
+Release:       1
 Source0:       http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2
 License:       BSD 
 Group:         Development/Python
@@ -23,14 +23,14 @@ Summary:       Python 2 bindings for the CUPS API
 Python 3 bindings for the CUPS API.
 
 %files
-%doc COPYING ChangeLog README NEWS TODO
+%doc COPYING README NEWS TODO
 %{py_platsitedir}/cups.cpython-3*.so
 %{py_platsitedir}/pycups*.egg-info
 %{_rpmhome}/fileattrs/psdriver.attr
 %{_rpmhome}/postscriptdriver.prov
 
 %files -n python2-%{module}
-%doc COPYING ChangeLog README NEWS TODO
+%doc COPYING README NEWS TODO
 %{python2_sitearch}/cups.so
 %{python2_sitearch}/pycups*.egg-info
 
@@ -38,6 +38,8 @@ Python 3 bindings for the CUPS API.
 
 %prep
 %setup -q -n pycups-%{version}
+sed -i 's/_rpmconfigdir/_rpmhome/' Makefile
+
 cp -a . %{py2dir}
 
 %build
