@@ -33,8 +33,6 @@ Python 3 bindings for the CUPS API.
 %doc COPYING ChangeLog README NEWS TODO
 %{python2_sitearch}/cups.so
 %{python2_sitearch}/pycups*.egg-info
-%{_rpmconfigdir}/fileattrs/psdriver.attr
-%{_rpmconfigdir}/postscriptdriver.prov
 
 #--------------------------------------------------------------------
 
