@@ -1,4 +1,5 @@
 %define module cups
+%define _disable_lto 1
 
 Summary:       Python bindings for the CUPS API
 Name:          python-%{module}
