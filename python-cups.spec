@@ -27,8 +27,8 @@ Python 3 bindings for the CUPS API.
 %doc COPYING README NEWS TODO
 %{py_platsitedir}/cups.cpython-3*.so
 %{py_platsitedir}/pycups*.egg-info
-%{_rpmhome}/fileattrs/psdriver.attr
-%{_rpmhome}/postscriptdriver.prov
+%{_rpmconfigdir}/fileattrs/psdriver.attr
+%{_rpmconfigdir}/postscriptdriver.prov
 
 %files -n python2-%{module}
 %doc COPYING README NEWS TODO
@@ -39,7 +39,7 @@ Python 3 bindings for the CUPS API.
 
 %prep
 %setup -q -n pycups-%{version}
-sed -i 's/_rpmconfigdir/_rpmhome/' Makefile
+#sed -i 's/_rpmconfigdir/usr/lib/rpm/' Makefile
 
 cp -a . %{py2dir}
 
