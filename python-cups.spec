@@ -3,8 +3,8 @@
 
 Summary:       Python bindings for the CUPS API
 Name:          python-%{module}
-Version:       1.9.73
-Release:       7
+Version:       1.9.74
+Release:       1
 Source0:       http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2
 License:       BSD 
 Group:         Development/Python
@@ -32,8 +32,8 @@ Python 3 bindings for the CUPS API.
 
 %files -n python2-%{module}
 %doc COPYING README NEWS TODO
-%{python2_sitearch}/cups.so
-%{python2_sitearch}/pycups*.egg-info
+%{py_platsitedir}/cups.so
+%{py_platsitedir}/pycups*.egg-info
 
 #--------------------------------------------------------------------
 
@@ -48,13 +48,13 @@ export CC=%{__cc}
 %make CFLAGS="%{optflags} -fno-strict-aliasing"
 
 pushd %{py2dir}
-CFLAGS="%{optflags}" %{__python2} setup.py build
+CFLAGS="%{optflags}" python2} setup.py build
 popd
 
 %install
 %makeinstall_std
 
 pushd %{py2dir}
-%{__python2} setup.py install --skip-build --root %{buildroot}
+python setup.py install --skip-build --root %{buildroot}
 chmod 755 %{buildroot}%{py_platsitedir}/cups*.so
 popd
