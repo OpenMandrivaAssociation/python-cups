@@ -9,6 +9,7 @@ Source0:	https://files.pythonhosted.org/packages/00/ce/836a0deb8b24bcd5f850f8fb9
 License:	BSD
 Group:		Development/Python
 Url:		https://cyberelk.net/tim/software/pycups/
+BuildRequires:  make
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(python3)
