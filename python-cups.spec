@@ -13,6 +13,7 @@ BuildRequires:  make
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(python3)
+BuildRequires:  python-setuptools
 
 %description
 Python bindings for the CUPS API.
